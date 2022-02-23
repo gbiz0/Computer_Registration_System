@@ -125,7 +125,7 @@ public class ComputadorDAOImpl implements GenericDAO{
     public Object carregar(int idObject) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from computadores where idcomputador = ?;";
+        String sql = "select c.*, p.* from computador c, produto p where c.idproduto = p.idproduto and p.idproduto = ?;";
         Computador computador = new Computador();
 
         try {
@@ -134,9 +134,13 @@ public class ComputadorDAOImpl implements GenericDAO{
             rs = stmt.executeQuery();
             
             while (rs.next()) {
+                computador = new Computador();
                 computador.setIdComputador(rs.getInt("idcomputador"));
+                computador.setFornecedorProduto(rs.getString("fornecedorproduto"));
+                computador.setPrecoProduto(rs.getInt("precoproduto"));
                 computador.setRamComputador(rs.getInt("ramcomputador"));
                 computador.setSsdComputador(rs.getInt("ssdcomputador"));
+                computador.setIdProduto(rs.getInt("idproduto"));
             }
         } catch (SQLException ex) {
             System.out.println("Problemas ao alterar computadores! Erro:" + ex.getMessage());

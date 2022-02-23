@@ -35,6 +35,7 @@
                 font-size: 3rem;
                 text-align: center;
                 font-weight: 700;
+                
             }
             ul
             {

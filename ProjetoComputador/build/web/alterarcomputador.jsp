@@ -11,14 +11,86 @@
                 font-family: 'Raleway', sans-serif;
                 padding: 0;
                 margin: 0;
+                box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-font-smoothing:antialiased;
+                -moz-font-smoothing:antialiased;
+                -o-font-smoothing:antialiased;
+                font-smoothing:antialiased;
+                text-rendering:optimizeLegibility;
             }
+            #contact{
+                background: #5700BA;
+                padding:25px;
+                margin:50px 0;
+            }
+            .container {
+                max-width:500px;
+                width:100%;
+                margin:0 auto;
+                position:relative;
+            }
+            fieldset {
+                border: medium none !important;
+                margin: 0 0 10px;
+                min-width: 100%;
+                padding: 0;
+                width: 100%;
+            }
+            
+            #contact input[type="text"], #contact input[type="number"]{                  
+                    width:100%;
+                    border:1px solid #CCC;
+                    background:#FFF;
+                    margin:0 0 5px;
+                    padding:10px;
+            }
+
+            #contact input[type="text"]:hover, #contact input[type="number"]:hover{
+                    -webkit-transition:border-color 0.3s ease-in-out;
+                    -moz-transition:border-color 0.3s ease-in-out;
+                    transition:border-color 0.3s ease-in-out;
+                    border:1px solid #AAA;
+            }
+
+            #contact textarea {
+                    height:100px;
+                    max-width:100%;
+              resize:none;
+            }
+
+            #contact button[type="submit"] {
+                    cursor:pointer;
+                    width:100%;
+                    border:none;
+                    background:#6500D9;
+                    color:#FFF;
+                    margin:0 0 5px;
+                    padding:10px;
+                    font-size:15px;
+            }
+
+            #contact button[type="submit"]:hover {
+                    background:black;
+                    -webkit-transition:background 0.3s ease-in-out;
+                    -moz-transition:background 0.3s ease-in-out;
+                    transition:background-color 0.3s ease-in-out;
+            }
+
+            #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+            #contact input:focus, #contact textarea:focus {
+                    outline:0;
+                    border:1px solid #999;
+            }
+            
+            
             body{
-                background-image: url(train.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
+                background-color: #D9D9D9;
             }
             h1{
-                color: #8257e6;
+                color: #7900FF;
                 margin-top: 1rem;
                 font-size: 3rem;
                 text-align: center;
@@ -36,46 +108,68 @@
             }
             ul li{
                 display: flex;
+                justify-content: center;
+
             }
             ul li a{
-                color: white;
+                color: 7900FF;
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: 0.2s;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 align-items: center;
             }
             a:hover{
-                color: #8257e6;
-                font-size: 2rem;
+                color: black;
+                margin-top: 2px; 
                 opacity: 2;
                 display: block;
+            
+            }
+            .cadastrar{
+                font-size: 1.5rem;
+                background-color: #8257e6; 
+                color: white;
+                text-decoration: none;
+                
             }
         </style>
+        <div class="container">
         <h1 align="center">Alterar dados</h1>
-        <form name="alterarcomputador" action="AlterarComputador" method="POST">
-
-                        <p colspan="2" align="center">${mensagem}</p>
+        <form id="contact" name="alterarcomputador" action="AlterarComputador" method="POST">
                     
-                        <p>ID:</p>
-                        <input type="text" name="idComputador" value="${computador.idComputador}" readonly="true">
+                        <fieldset>
+                            <input placeholder="ID Computador" type="text" name="idComputador" placeholder="${computador.idComputador}" readonly="true">
+                        </fieldset>
                         
-                        <p>Fornecedor</p>
-                        <input type="text" name="fornecedorComputador" value="${computador.fornecedorComputador}">
-                            
-                        <p>Preço:</p>
-                        <input type="text" name="precoComputador" value="${computador.precoComputador}">
-                            
-                        <p>Ram:</p>
-                        <input type="text" name="ramComputador" value="${computador.ramComputador}">
-                            
-                        <p>Ssd:</p>
-                        <input type="text" name="ssdComputador" value="${computador.ssdComputador}">
-                 
+                        <fieldset>
+                            <input placeholder="ID Produto" type="text" name="idProduto" value="${computador.idProduto}" readonly="true">
+                        </fieldset>
+                        
+                        <fieldset>
+                            <input placeholder="Nome do Fornecedor"type="text" name="fornecedorProduto" value="${computador.fornecedorProduto}">
+                        </fieldset>   
+                        
+                        <fieldset>
+                            <input placeholder="Preço do Produto" type="text" name="precoProduto" value="${computador.precoProduto}">
+                        </fieldset> 
+                        
+                        <fieldset>
+                            <input placeholder="Ram" type="text" name="ramComputador" value="${computador.ramComputador}">
+                        </fieldset>  
+                        
+                        <fieldset>
+                            <input placeholder="Ssd" type="text" name="ssdComputador" value="${computador.ssdComputador}">
+                        </fieldset>
 
-                        <input type="submit" name="cadastrar" value="Cadastrar">
-
-                <a href="index.jsp">Voltar</a>
+                         <fieldset>
+                            <button class="cadastrar" type="submit" name="cadastrar" value="Cadastrar">Enviar</button>
+                        </fieldset>
         </form>
+        </div>
+                    <ul>
+                        <li><a href="index.jsp">Voltar</a></li>
+                    </ul>
+                          <p colspan="2" align="center">${mensagem}</p>
     </body>
 </html>

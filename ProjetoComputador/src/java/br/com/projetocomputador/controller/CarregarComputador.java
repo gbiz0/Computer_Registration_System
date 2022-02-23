@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Aluno
+ * @author gbiz0
  */
 @WebServlet(name = "CarregarComputador", urlPatterns = {"/CarregarComputador"})
 public class CarregarComputador extends HttpServlet {
@@ -22,7 +22,7 @@ public class CarregarComputador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          int idComputador = Integer.parseInt(request.getParameter("idComputador"));
+          int idComputador = Integer.parseInt(request.getParameter("idProduto"));
             
             try{
                 GenericDAO dao = new ComputadorDAOImpl();

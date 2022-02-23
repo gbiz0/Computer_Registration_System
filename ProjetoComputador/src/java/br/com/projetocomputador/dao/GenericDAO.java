@@ -5,6 +5,7 @@ import java.util.List;
 public interface GenericDAO {
     public Boolean cadastrar(Object object);
     
+    
     public List<Object> listar();
     
     public Boolean excluir(int idOject);

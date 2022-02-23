@@ -139,8 +139,6 @@
         <div class="container">
         <h1>Cadastrar</h1>
         <form id="contact" name="cadastrarcomputador" action="CadastrarComputador" method="POST">
-                  <br><br><br>
-                        <p colspan="2" align="center">${mensagem}</p>
                         
                         <fieldset>
                             <input  placeholder="Nome do Fornecedor" type="text" name="fornecedorProduto">
@@ -162,8 +160,11 @@
                         </fieldset>
         </form>    
         </div>
+
                     <ul>
                         <li><a href="index.jsp">Voltar</a></li>
                     </ul>
+        <p colspan="2" align="center">${mensagem}</p>
+
     </body>
 </html>
