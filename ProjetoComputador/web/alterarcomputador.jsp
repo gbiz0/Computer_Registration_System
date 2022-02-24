@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
         <title>Alterar dados</title>
     </head>
     <body>
@@ -37,6 +38,12 @@
                 min-width: 100%;
                 padding: 0;
                 width: 100%;
+            }
+            fieldset i{
+                position: absolute;
+                right: 35px;
+                margin-top: 7px;
+                font-size: 1.3rem;
             }
             
             #contact input[type="text"], #contact input[type="number"]{                  
@@ -138,13 +145,17 @@
         <h1 align="center">Alterar dados</h1>
         <form id="contact" name="alterarcomputador" action="AlterarComputador" method="POST">
                     
+            <div>
                         <fieldset>
+                            <i class="bi bi-lock"></i>
                             <input placeholder="ID Computador" type="text" name="idComputador" placeholder="${computador.idComputador}" readonly="true">
                         </fieldset>
                         
                         <fieldset>
+                            <i class="bi bi-lock"></i>
                             <input placeholder="ID Produto" type="text" name="idProduto" value="${computador.idProduto}" readonly="true">
                         </fieldset>
+            </div>
                         
                         <fieldset>
                             <input placeholder="Nome do Fornecedor"type="text" name="fornecedorProduto" value="${computador.fornecedorProduto}">
