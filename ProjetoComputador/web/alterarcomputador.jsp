@@ -148,29 +148,29 @@
             <div>
                         <fieldset>
                             <i class="bi bi-lock"></i>
-                            <input placeholder="ID Computador" type="text" name="idComputador" placeholder="${computador.idComputador}" readonly="true">
+                            <input type="text" name="idComputador" value="${computador.idComputador}" readonly="true">
                         </fieldset>
                         
                         <fieldset>
                             <i class="bi bi-lock"></i>
-                            <input placeholder="ID Produto" type="text" name="idProduto" value="${computador.idProduto}" readonly="true">
+                            <input type="text" name="idProduto" value="${computador.idProduto}" readonly="true">
                         </fieldset>
             </div>
                         
                         <fieldset>
-                            <input placeholder="Nome do Fornecedor"type="text" name="fornecedorProduto" value="${computador.fornecedorProduto}">
+                            <input type="text" name="fornecedorProduto" value="${computador.fornecedorProduto}">
                         </fieldset>   
                         
                         <fieldset>
-                            <input placeholder="Preço do Produto" type="text" name="precoProduto" value="${computador.precoProduto}">
+                            <input type="text" name="precoProduto" value="${computador.precoProduto}">
                         </fieldset> 
                         
                         <fieldset>
-                            <input placeholder="Ram" type="text" name="ramComputador" value="${computador.ramComputador}">
+                            <input type="text" name="ramComputador" value="${computador.ramComputador}">
                         </fieldset>  
                         
                         <fieldset>
-                            <input placeholder="Ssd" type="text" name="ssdComputador" value="${computador.ssdComputador}">
+                            <input type="text" name="ssdComputador" value="${computador.ssdComputador}">
                         </fieldset>
 
                          <fieldset>
