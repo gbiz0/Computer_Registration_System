@@ -102,7 +102,7 @@
             p{
                 text-align: center;
                 font-size: 1.3rem;
-                color: white;
+                color: black;
             }
             input{
                 display: flex;

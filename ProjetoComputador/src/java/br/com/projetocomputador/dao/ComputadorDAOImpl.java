@@ -125,7 +125,7 @@ public class ComputadorDAOImpl implements GenericDAO{
     public Object carregar(int idObject) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select c.*, p.* from computador c, produto p where c.idproduto = p.idproduto and p.idproduto = ?;";
+        String sql = "select c.*, p.* from computadores c, produto p where c.idproduto = p.idproduto and p.idproduto = ?;";
         Computador computador = new Computador();
 
         try {
@@ -162,17 +162,19 @@ public class ComputadorDAOImpl implements GenericDAO{
     public Boolean alterar(Object object) {
         Computador computador = (Computador) object;
         PreparedStatement stmt = null;
-        String sql = "update computadores set fornecedorcomputador = ?," 
-                    + "precocomputador = ?, ramcomputador = ?, ssdcomputador = ?"
-                    + "where idcomputador = ?;";
+        String sql = "update computadores set ssdcomputador = ?, ramcomputador = ? where idproduto = ?;";
                     
        try {
            stmt = conn.prepareStatement(sql);
-           stmt.setInt(3, computador.getRamComputador());
-           stmt.setInt(4, computador.getSsdComputador());
-           stmt.setInt(5, computador.getIdComputador());
-           stmt.executeUpdate();
-           return true;
+           stmt.setInt(1, computador.getSsdComputador());
+           stmt.setInt(2, computador.getRamComputador());
+           stmt.setInt(3, computador.getIdProduto());
+           if (new ProdutoDAOImpl().alterar(computador)){
+               stmt.executeUpdate();
+               return true;
+           } else{
+               return false;
+           }
        }catch (Exception ex) {
             System.out.println("Problemas ao cadastrar computador! Erro: " + ex.getMessage());
             ex.printStackTrace();

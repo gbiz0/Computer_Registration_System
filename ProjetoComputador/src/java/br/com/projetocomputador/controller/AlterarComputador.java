@@ -23,7 +23,9 @@ public class AlterarComputador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             Integer idComputador = Integer.parseInt(request.getParameter("idComputador"));
+            Integer idProduto = Integer.parseInt(request.getParameter("idProduto"));
             String fornecedorProduto = request.getParameter("fornecedorProduto");
             Integer precoProduto = Integer.parseInt(request.getParameter("precoProduto"));
             Integer ramComputador = Integer.parseInt(request.getParameter("ramComputador"));
@@ -33,6 +35,7 @@ public class AlterarComputador extends HttpServlet {
             
             Computador computador = new Computador();
             computador.setIdComputador(idComputador);
+            computador.setIdProduto(idProduto);
             computador.setFornecedorProduto(fornecedorProduto);
             computador.setPrecoProduto(precoProduto);
             computador.setRamComputador(ramComputador);
@@ -41,14 +44,14 @@ public class AlterarComputador extends HttpServlet {
             try{
                 GenericDAO dao = new ComputadorDAOImpl();
                 if (dao.alterar(computador)){
-                    mensagem = "Cliente alterado com sucesso.";
+                    mensagem = "Computador alterado com sucesso.";
                 } else{
-                    mensagem = "Problemas ao alterar cliente.";
+                    mensagem = "Problemas ao alterar computador.";
                 }
                 request.setAttribute("mensagem", mensagem);
-                request.getRequestDispatcher("ListarCliente").forward(request, response);
+                request.getRequestDispatcher("ListarComputador").forward(request, response);
             } catch (Exception e) {
-                System.out.println("Problemas no Servlet ao alterar usuário! Erro:" + e.getMessage());
+                System.out.println("Problemas no Servlet ao alterar computador! Erro:" + e.getMessage());
                 e.printStackTrace();
             }
         }

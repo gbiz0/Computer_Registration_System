@@ -71,9 +71,35 @@ public class ProdutoDAOImpl implements GenericDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Boolean alterar(Produto produto) {
+        PreparedStatement stmt = null;
+        String sql = "update produto set fornecedorproduto = ?, precoproduto = ? where idproduto = ?;";
+                    
+       try {
+           stmt = conn.prepareStatement(sql);
+           stmt.setString(1, produto.getFornecedorProduto());
+           stmt.setInt(2, produto.getPrecoProduto());
+           stmt.setInt(3, produto.getIdProduto());
+           stmt.executeUpdate();
+           return true;
+
+       }catch (Exception ex) {
+            System.out.println("Problemas ao cadastrar computador! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar a conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+       }
+    
+        }
+
     @Override
     public Boolean alterar(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-}
+   }
